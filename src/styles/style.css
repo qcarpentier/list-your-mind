@@ -1,0 +1,304 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  padding: 50px;
+  font-size: 110%;
+  font-family: sans-serif;
+}
+
+.app-container {
+  flex: 1 0 auto;
+}
+
+/*********************/
+/* Menu container */
+/*********************/
+
+.menu-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.menu-container button {
+  width: 35px;
+  background: #2f2f2f;
+  color: #ccc;
+  font-size: 120%;
+  font-weight: bold;
+  border: none;
+  transition: ease 0.4s all;
+}
+
+.menu-container button:hover {
+  background: #444;
+  cursor: pointer;
+}
+
+/*******************/
+/* Modal container */
+/*******************/
+
+/* The Modal (background) */
+.modal-container {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #333;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 15%;
+}
+
+/* The Close Button */
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #eee;
+  cursor: pointer;
+}
+
+/*************************/
+/*     Switch toggle     */
+/*************************/
+/*     switch > div      */
+/*    slider > button    */
+/* slider::before > ball */
+/*************************/
+
+.switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.switch-container span {
+  margin-right: 15px;
+  padding-top: 7px;
+  color: #ccc;
+}
+
+.switch {
+  position: relative;
+  width: 75px;
+  height: 34px;
+}
+
+/* Hide checkbox */
+.switch input {
+  display: none;
+}
+
+/* Slider button */
+.slider {
+  /* Display */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Appearance */
+  background-color: #ccc;
+  border-radius: 34px; /* Round the slider button */
+  cursor: pointer;
+
+  /* Animation for background */
+  -webkit-transition: 0.4s;
+  transition: all 0.2s ease;
+}
+
+/* Slider ball */
+.slider::before {
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+
+  /* Appearance */
+  content: "";
+  background-color: white;
+  border-radius: 50%; /* Ball */
+
+  /* Animation for slider ball */
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* Slider button when the input is checked */
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+/* Slider ball when the input is checked */
+input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/*********************/
+/* AddItem container */
+/*********************/
+
+.add-item-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-item-container input {
+  /* Display */
+  width: calc(100% - 200px);
+  max-width: 500px;
+  min-width: 150px;
+  text-align: center;
+
+  /* Appearance */
+  margin-right: 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+}
+
+.add-item-container button {
+  width: 50px;
+  color: white;
+  background-color: #2196f3;
+
+  transition: ease 0.4s all;
+  border-radius: 5px;
+  border: none;
+}
+
+.add-item-container button:hover {
+  background-color: #0a6ebd;
+  cursor: pointer;
+}
+
+/* Allows to keep the margin between App and List when last item is removed */
+.add-item-container form {
+  margin-bottom: 20px;
+}
+
+/******************/
+/* List container */
+/******************/
+
+/* Margin between App and List */
+.list-container {
+  margin-top: 20px;
+  max-height: 20px;
+}
+
+.list-container li {
+  /* Flex and display */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 200px);
+  max-width: 500px;
+  min-width: 150px;
+
+  /* Appearance */
+  color: #333;
+  background-color: white;
+  opacity: 0.8;
+  list-style: none;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 10px;
+
+  /* Custom style */
+  transition: ease 0.4s all;
+  padding: 5px;
+  padding-left: 30px;
+}
+
+.list-container li:hover {
+  background-color: #bbb;
+  cursor: default;
+}
+
+/**************************/
+/* Close button animation */
+/**************************/
+
+.close-button {
+  transform: rotate(0deg);
+  transition: ease 0.4s all;
+  font-size: 75%;
+}
+
+.close-button:hover {
+  transform: rotate(180deg);
+  color: red;
+  cursor: pointer;
+}
+
+/************/
+/* Tool tip */
+/************/
+
+.tooltip {
+  /* Flex and display */
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+
+  /* Allow value and button/tooltip to be on opposite side */
+  margin-left: auto;
+}
+
+.tooltip-text {
+  /* Display  */
+  position: absolute;
+  width: 60px;
+
+  /* Set the tooltip text above the close button  */
+  bottom: 100%; /* Tooltip text is on the top */
+  left: -24px; /* 60px (width) /2 = 30px -> 80% (font-size) of 30px = 24px
+
+  /* Appearance  */
+  font-size: 80%;
+  color: #fff;
+  background-color: black;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+
+  /* Tooltip text animation */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

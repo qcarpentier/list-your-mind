@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import FlipMove from "react-flip-move";
 
 const List = props => {
   const deleteItem = index => {
@@ -6,7 +7,7 @@ const List = props => {
   };
   
   // Item list with filtering
-  const listItems = props.items ? 
+  const listItems = props.items ? (
     props.items
       .filter(items => items.includes(props.item))
       .map((item, index) => (
@@ -19,12 +20,20 @@ const List = props => {
             <span className="tooltip-text">Delete</span>
           </div>
         </li>
-      )) : 
-    null;
+      ))
+     ) : (
+      null
+    );
 
   return (
     <div className="list-container">
-      {listItems}
+      {props.disableAnimation ? (
+        <FlipMove enterAnimation="fade" leaveAnimation="fade">
+          {listItems}
+        </FlipMove>
+      ) : (
+        listItems
+      )}
     </div>
   )
 }

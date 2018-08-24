@@ -10,12 +10,10 @@ const AddItem = props => {
   };
 
   return (
-    <div className="add-item-container" onSubmit={handleSubmit}>
-      <form>
-        <input type="text" value={props.item} onChange={handleInputChange} />
-        <button>&#10010;</button>
-      </form>
-    </div>
+    <form className="add-item-container" onSubmit={handleSubmit}>
+      <input type="text" value={props.item} onChange={handleInputChange} />
+      <button>&#10010;</button>
+    </form>
   )
 }
 
