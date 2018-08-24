@@ -7,11 +7,19 @@ const List = props => {
   
   // Item list with filtering
   const listItems = props.items ? 
-    props.items.map((item, index) => (
-      <li key={index}>
-        {item}
-      </li>
-    )) : 
+    props.items
+      .filter(items => items.includes(props.item))
+      .map((item, index) => (
+        <li key={index}>
+          {item}
+          <div className="tooltip">
+            <span className="close-button" onClick={() => deleteItem(index)}>
+              &#10006;
+            </span>
+            <span className="tooltip-text">Delete</span>
+          </div>
+        </li>
+      )) : 
     null;
 
   return (
