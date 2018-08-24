@@ -9,7 +9,8 @@ class App extends Component {
   
     this.state = {
       item: '',
-      items: []
+      items: [],
+      disableAnimation: ''
     }
   }
 
@@ -29,6 +30,12 @@ class App extends Component {
     }
   };
 
+  handleCheckChange = () => {
+    this.setState({
+      disableAnimation: !this.state.disableAnimation
+    });
+  };
+
   deleteItem = index => {
     this.setState({
       item: "",
@@ -39,10 +46,14 @@ class App extends Component {
   render() {
     const item = this.state.item;
     const items = this.state.items;
+    const disableAnimation = this.state.disableAnimation;
 
     return (
       <div className="app-container">
-        <Menu />
+        <Menu
+          disableAnimation={disableAnimation}
+          handleCheckChange={this.handleCheckChange}
+        />
         <AddItem 
           item={item}
           handleSubmit={this.handleSubmit}
