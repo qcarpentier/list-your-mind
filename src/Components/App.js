@@ -3,15 +3,25 @@ import Menu from './Menu';
 import AddItem from './AddItem';
 import List from './List';
 
+import { initState, saveSession } from "../utils/localStorage.js";
+
 class App extends Component {
   constructor(props) {
     super(props)
   
+    // Get the previous state from the local storage
+    let previousState = initState();
+
     this.state = {
-      item: '',
-      items: [],
-      disableAnimation: ''
-    }
+      item: previousState.item,
+      items: previousState.items,
+      disableAnimation: previousState.disableAnimation
+    };
+  }
+
+   // Save the session each time the App component is updated
+  componentDidUpdate() {
+    saveSession(this.state);
   }
 
   handleInputChange = event => {
