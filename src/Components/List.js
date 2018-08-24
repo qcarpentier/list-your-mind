@@ -1,7 +1,10 @@
 import React from 'react'
 
 const List = props => {
-
+  const deleteItem = index => {
+    props.deleteItem(index);
+  };
+  
   // Item list with filtering
   const listItems = props.items ? 
     props.items.map((item, index) => (
